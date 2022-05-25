@@ -1,7 +1,7 @@
 let hello = <h1>Hello World</h1>;
 
-function App(name) {
-    return <h1>Hello {name}</h1>;
+function App(a, b) {
+    return <h2>{a + b}</h2>;
 }
 
 export default App;
