@@ -1,6 +1,5 @@
-function App() {
-    let hello = <h1>Hello World!</h1>;
-    return <div></div>;
-}
+let hello = <h1>Hello World!</h1>;
 
-export default App;
+function Foo(name) {
+    return <h1>Hello, {name}</h1>;
+}
