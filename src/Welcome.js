@@ -6,4 +6,11 @@ class Welcome extends React.Component {
     }
 }
 
+/* If no props.name is passed, there would be an empty space.
+   So we use defaultProps to give some props' a default value */
+
+Welcome.defaultProps = {
+    name: "Default Name",
+};
+
 export default Welcome;
