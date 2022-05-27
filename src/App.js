@@ -7,7 +7,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Counter />
+                <Counter initialValue={50} interval={2000} increment={2} />
                 <Hello />
                 {/* Within curly braces we can pass any valid JS/JSX expression */}
                 <Welcome name={"John"} age={29} />
