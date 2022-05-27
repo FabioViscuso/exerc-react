@@ -7,7 +7,8 @@ class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Welcome name={"John"} age={29} />
+                {/* Within curly braces we can pass any valid JS/JSX expression */}
+                <Welcome name={<strong>John</strong>} age={29} />
             </div>
         );
     }
