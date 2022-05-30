@@ -22,6 +22,16 @@ class Login extends React.Component {
 
     }
 
+    resetHandler = () => {
+        this.setState(
+            {
+                username: "",
+                password: "",
+                remember: false,
+            }
+        )
+    }
+
     render() {
         return (
             <form>
@@ -43,6 +53,7 @@ class Login extends React.Component {
                     onClick={this.onLogin}
                     disabled={(this.state.password === "" || this.state.username === "" ? true : false)}
                 >Login</button>
+                <button onClick={this.resetHandler}>Reset</button>
             </form>
         )
     }
