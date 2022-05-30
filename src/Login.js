@@ -8,12 +8,8 @@ class Login extends React.Component {
     }
 
     inputChangeHandler = (event) => {
-        let value = "";
+        const value = (event.target.type === "checkbox" ? event.target.checked : event.target.value);
         const name = event.target.name;
-
-        (event.target.type === "checkbox")
-            ? value = event.target.checked
-            : value = event.target.value
 
         this.setState({
             [name]: value
