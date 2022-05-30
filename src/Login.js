@@ -16,8 +16,10 @@ class Login extends React.Component {
         })
     }
 
-    componentDidUpdate() {
+    onLogin = (event) => {
+        event.preventDefault();
         console.log(this.state)
+
     }
 
     render() {
@@ -37,6 +39,10 @@ class Login extends React.Component {
                     type="checkbox"
                     checked={this.state.remember}
                     onChange={this.inputChangeHandler} />
+                <button type="submit"
+                    onClick={this.onLogin}
+                    disabled={(this.state.password === "" || this.state.username === "" ? true : false)}
+                >Login</button>
             </form>
         )
     }
