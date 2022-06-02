@@ -26,6 +26,9 @@ class UncontrolledLogin extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this._formRef.current.username.focus()
+    }
 
     render() {
         return (
@@ -33,6 +36,7 @@ class UncontrolledLogin extends React.Component {
                 <input name="username"
                     type="text"
                     placeholder="username"
+                    /* Alternatively, just add "autofocus" as an attribute */
                     onChange={this.checker} />
                 <input name="password"
                     type="password"
