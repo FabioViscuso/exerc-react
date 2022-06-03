@@ -1,4 +1,5 @@
 import InteractiveWelcome from "./InteractiveWelcome";
+import TodoList from "./TodoList";
 /* import Login from "./Login"; */
 import UncontrolledLogin from "./UncontrolledLogin";
 
@@ -7,6 +8,7 @@ function App() {
         <InteractiveWelcome />
         {/* <Login /> */}
         <UncontrolledLogin />
+        <TodoList />
     </div>)
 }
 
