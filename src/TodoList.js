@@ -8,6 +8,7 @@ class TodoList extends React.Component {
     addToTodoHandler = (event) => {
         event.preventDefault();
         this.setState({ items: [...this.state.items, event.target.elements.newTodo.value] })
+        event.target.reset();
     }
 
     checker = () => {
