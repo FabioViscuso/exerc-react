@@ -14,7 +14,7 @@ class InteractiveWelcome extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="welcome">
                 <Welcome currName={this.state.currName} />
                 <input type="text" placeholder="Type here" onChange={this.inputChangeHandler} />
             </div>
