@@ -11,6 +11,10 @@ class TodoList extends React.Component {
         event.target.reset();
     }
 
+    clearTodos = () => {
+        this.setState({ items: [] });
+    }
+
     checker = () => {
         if (document.querySelector('input[name="newTodo"]').value === "") {
             document.querySelector('#todoAdder').disabled = true
@@ -25,9 +29,17 @@ class TodoList extends React.Component {
                 <form onSubmit={this.addToTodoHandler}>
                     <input type={'text'} name={'newTodo'} onChange={this.checker} />
                     <button id="todoAdder" type="submit" disabled>Add to Todo</button>
+                    <button onClick={this.clearTodos}>Clear Todos</button>
                 </form>
                 <ul>
-                    {Object.values(this.state.items).map((item, index) => <li key={index}>{item}</li>)}
+                    {
+                        // eslint-disable-next-line array-callback-return
+                        Object.values(this.state.items).map((item, index) => {
+                            if (item !== "") {
+                                return (<li key={index}>{item}</li>)
+                            }
+                        })
+                    }
                 </ul>
             </>
         )
