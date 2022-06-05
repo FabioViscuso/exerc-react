@@ -7,6 +7,7 @@ class Login extends React.Component {
         remember: false,
     }
 
+
     inputChangeHandler = (event) => {
         const value = (event.target.type === "checkbox" ? event.target.checked : event.target.value);
         const name = event.target.name;
@@ -33,6 +34,10 @@ class Login extends React.Component {
     }
 
     render() {
+        const buttonStyle = {
+            backgroundColor: (this.state.password.length < 8) ? 'red' : 'green'
+        }
+
         return (
             <form>
                 <input name="username"
@@ -50,6 +55,7 @@ class Login extends React.Component {
                     checked={this.state.remember}
                     onChange={this.inputChangeHandler} />
                 <button type="submit"
+                    style={buttonStyle}
                     onClick={this.onLogin}
                     disabled={(this.state.password === "" || this.state.username === "" ? true : false)}
                 >Login</button>
