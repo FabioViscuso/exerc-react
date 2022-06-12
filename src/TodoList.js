@@ -5,9 +5,14 @@ class TodoList extends React.Component {
         todos: []
     }
 
-    addToTodoHandler = (event) => {
+    addToTodoHandler = /* async */ (event) => {
         event.preventDefault();
-        this.setState({ todos: [...this.state.todos, event.target.elements.newTodo.value] });
+        /*         await this.setState((state) => {
+                    return {
+                        todos: [...state.todos, event.target.elements.newTodo.value]
+                    }
+                }); */
+        this.setState({ todos: [...this.state.todos, event.target.elements.newTodo.value] })
         event.target.reset();
         document.querySelector('#todoAdder').disabled = true;
     }
@@ -45,15 +50,12 @@ class TodoList extends React.Component {
                 </form>
                 <ul>
                     {
-                        // eslint-disable-next-line array-callback-return
                         this.state.todos.map((item, index) => {
-                            if (item !== "") {
-                                return (
-                                    <li todonumber={index} key={'list' + index}>{item}&nbsp;
-                                        <button key={'btn' + index} onClick={this.deleteTodoHandler}>Delete</button>
-                                    </li>
-                                )
-                            }
+                            return (
+                                <li todonumber={index} key={'list' + index}>{item}&nbsp;
+                                    <button key={'btn' + index} onClick={this.deleteTodoHandler}>Delete</button>
+                                </li>
+                            )
                         })
                     }
                 </ul>
