@@ -6,7 +6,11 @@ class Container extends Component {
             backgroundColor: '#9974a5',
             border: '2px solid #222222'
         }
-        return (<div style={containerStyle}>{this.props.children}</div>)
+        return (<div style={containerStyle}>
+            <>{this.props.title}</>
+            <div>{this.props.children}</div>
+        </div>
+        )
     }
 }
 

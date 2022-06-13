@@ -10,9 +10,8 @@ function App() {
         <Login />
         {/* <UncontrolledLogin /> */}
         <TodoList />
-        <Container>
-            <h1>Hello!</h1>
-            <h2>World</h2>
+        <Container title={<h1>Hello world!</h1>}>
+            <p>Lorem ipsum blablabla</p>
         </Container >
     </div>)
 }
