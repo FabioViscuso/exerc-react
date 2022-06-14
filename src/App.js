@@ -1,6 +1,7 @@
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
 import Welcome from "./Welcome";
 import ConfigurableList from "./ConfigurableList";
+import Sum from "./Sum";
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
@@ -56,6 +57,7 @@ function App() {
                     })}
                 </div>
             )}/>
+            <Sum numbers={[2, 4, 5, 0, 1]} />
             {/* <Container title={<h1>Hello world!</h1>}>
             <p>Lorem ipsum blablabla</p>
         </Container > */}
