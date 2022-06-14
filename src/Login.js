@@ -1,30 +1,31 @@
-import React from "react";
+import { useState } from 'react';
 
-class Login extends React.Component {
-    state = {
+function Login() {
+    const [state, setState] = useState({
         username: "",
         password: "",
         remember: false,
-    }
+    })
 
 
-    inputChangeHandler = (event) => {
+    function inputChangeHandler(event) {
         const value = (event.target.type === "checkbox" ? event.target.checked : event.target.value);
         const name = event.target.name;
 
-        this.setState({
+        setState({
+            ...state,
             [name]: value
         })
     }
 
-    onLogin = (event) => {
+    function onLogin(event) {
         event.preventDefault();
-        console.log(this.state)
-
+        console.log(state)
+        resetHandler();
     }
 
-    resetHandler = () => {
-        this.setState(
+    function resetHandler() {
+        setState(
             {
                 username: "",
                 password: "",
@@ -33,35 +34,32 @@ class Login extends React.Component {
         )
     }
 
-    render() {
-        const buttonStyle = {
-            backgroundColor: (this.state.password.length < 8) ? 'red' : 'green'
-        }
-
-        return (
-            <form>
-                <input name="username"
-                    type="text"
-                    value={this.state.username}
-                    placeholder="username"
-                    onChange={this.inputChangeHandler} />
-                <input name="password"
-                    type="password"
-                    value={this.state.password}
-                    placeholder="password"
-                    onChange={this.inputChangeHandler} />
-                <input name="remember"
-                    type="checkbox"
-                    checked={this.state.remember}
-                    onChange={this.inputChangeHandler} />
-                <button type="submit"
-                    style={buttonStyle}
-                    onClick={this.onLogin}
-                    disabled={(this.state.password === "" || this.state.username === "" ? true : false)}
-                >Login</button>
-                <button onClick={this.resetHandler}>Reset</button>
-            </form>
-        )
+    const buttonStyle = {
+        backgroundColor: (state.password.length <= 8) ? 'red' : 'green'
     }
+
+    return (
+        <form onSubmit={onLogin}>
+            <input name="username"
+                type="text"
+                value={state.username}
+                placeholder="username"
+                onChange={inputChangeHandler} />
+            <input name="password"
+                type="password"
+                value={state.password}
+                placeholder="password"
+                onChange={inputChangeHandler} />
+            <input name="remember"
+                type="checkbox"
+                checked={state.remember}
+                onChange={inputChangeHandler} />
+            <button type="submit"
+                style={buttonStyle}
+                disabled={(state.username === "" || state.password > 8 ? true : false)}
+            >Login</button>
+            <button type='button' onClick={resetHandler}>Reset</button>
+        </form>
+    )
 }
 export default Login;
