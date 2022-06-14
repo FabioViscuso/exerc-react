@@ -57,7 +57,7 @@ function App() {
                     })}
                 </div>
             )}/>
-            <Sum numbers={[2, 4, 5, 0, 1]} />
+            <Sum /* numbers={[2, 4, 5, 0, 1]} */ />
             {/* <Container title={<h1>Hello world!</h1>}>
             <p>Lorem ipsum blablabla</p>
         </Container > */}
