@@ -37,7 +37,7 @@ class TodoList extends React.Component {
         return (
             <div>
                 <form onSubmit={this.addToListHandler}>
-                    <input type={'text'} name={`new${this.props.subject}element`} onChange={this.emptyInputChecker} />
+                    <input type={'text'} name={`new${this.props.subject}element`} onChange={this.emptyInputChecker} placeholder={`Insert new ${this.props.subject} element`} />
                     <button id={`${this.props.subject}listAdder`} type="submit" disabled>Add to {this.props.subject} list</button>
                     <button onClick={this.clearListHandler}>Clear {this.props.subject} list</button>
                 </form>
