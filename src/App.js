@@ -1,4 +1,5 @@
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
+import Welcome from "./Welcome";
 import ConfigurableList from "./ConfigurableList";
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
@@ -14,6 +15,7 @@ function App() {
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
             {/* <UncontrolledLogin /> */}
+            <Welcome currName={'Fabio'} />
             <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
                 <ul>
                     {state.map((item, index) => {
