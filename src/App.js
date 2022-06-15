@@ -10,7 +10,6 @@ import Login from "./Login";
 function App() {
     function onCounterChange(value){
         console.log(value)
-        return <p>{value}</p>
     }
     return (
         <div>
