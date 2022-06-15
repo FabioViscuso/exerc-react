@@ -2,12 +2,16 @@
 import Welcome from "./Welcome";
 import ConfigurableList from "./ConfigurableList";
 /* import Sum from "./Sum"; */
-/* import Counter from "./Counter"; */
+import Counter from "./Counter";
 import Login from "./Login";
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
 
 function App() {
+    function onCounterChange(value){
+        console.log(value)
+        return <p>{value}</p>
+    }
     return (
         <div>
             {/* <InteractiveWelcome /> */}
@@ -27,6 +31,7 @@ function App() {
                     })}
                 </ul>
             )}/>
+            <Counter onCounterChange={onCounterChange} />
 
         </div>
     );
