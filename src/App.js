@@ -1,25 +1,27 @@
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
-import Welcome from "./Welcome";
+/* import Welcome from "./Welcome"; */
 /* import ConfigurableList from "./ConfigurableList"; */
 /* import Sum from "./Sum"; */
-import Counter from "./Counter";
+/* import Counter from "./Counter"; */
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
+import GithubUser from './GithubUser';
 
-import { useState } from 'react'
+/* import { useState } from 'react' */
 
 function App() {
-    const [shouldCounterMount, setCounterMount] = useState(true);
+/*     const [shouldCounterMount, setCounterMount] = useState(true);
     function unmountCounter() {
         setCounterMount(shouldCounterMount => !shouldCounterMount)
-    }
+    } */
     return (
         <div>
+            <GithubUser username={'FabioViscuso'} />
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
             {/* <UncontrolledLogin /> */}
-            <Welcome currName={'Fabio'} />
+            {/* <Welcome currName={'Fabio'} /> */}
             {/* <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
                 <ul>
                     {state.map((item, index) => {
@@ -33,8 +35,8 @@ function App() {
                     })}
                 </ul>
             )}/> */}
-            {shouldCounterMount && <Counter />}
-            <button onClick={unmountCounter}>Toggle Counter</button>
+            {/* {shouldCounterMount && <Counter />}
+            <button onClick={unmountCounter}>Toggle Counter</button> */}
         </div>
     );
 }
