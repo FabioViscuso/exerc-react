@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
 
-function Counter({ initialValue = 0, increment = 1, onCounterChange }) {
-    const [counter, updateCounter] = useState(initialValue);
+function Counter() {
+    const [counter, updateCounter] = useState(0);
 
     useEffect(() => {
-        onCounterChange(counter);
-    }, [counter, onCounterChange])
+        const intervalID = setInterval(() => {
+            updateCounter(counter => counter + 1)
+        }, 1000);
+        console.log(counter)
 
-    function addCounterHandler() {
-        updateCounter((counter) => { return counter = counter + increment })
-    }
+        return () => {
+            clearInterval(intervalID)
+        }
+
+    }, [counter])
 
     function resetCounterHandler() {
-        updateCounter((counter) => counter = initialValue)
+        updateCounter(counter => counter = 0)
     }
 
     return (
         <>
             <p>{counter}</p>
-            <button onClick={addCounterHandler}>Add by {increment}</button>
-            <button onClick={resetCounterHandler}>Reset Counter</button>
+            <button onClick={resetCounterHandler}>Clear counter</button>
         </>
     )
 }

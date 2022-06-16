@@ -1,23 +1,26 @@
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
 import Welcome from "./Welcome";
-import ConfigurableList from "./ConfigurableList";
+/* import ConfigurableList from "./ConfigurableList"; */
 /* import Sum from "./Sum"; */
 import Counter from "./Counter";
-import Login from "./Login";
+/* import Login from "./Login"; */
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
 
+import { useState } from 'react'
+
 function App() {
-    function onCounterChange(value){
-        console.log(value)
+    const [shouldCounterMount, setCounterMount] = useState(true);
+    function unmountCounter() {
+        setCounterMount(shouldCounterMount => !shouldCounterMount)
     }
     return (
         <div>
             {/* <InteractiveWelcome /> */}
-            <Login />
+            {/* <Login /> */}
             {/* <UncontrolledLogin /> */}
             <Welcome currName={'Fabio'} />
-            <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
+            {/* <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
                 <ul>
                     {state.map((item, index) => {
                         if (item) {
@@ -29,9 +32,9 @@ function App() {
                         } else {return null}
                     })}
                 </ul>
-            )}/>
-            <Counter onCounterChange={onCounterChange} />
-
+            )}/> */}
+            {shouldCounterMount && <Counter />}
+            <button onClick={unmountCounter}>Toggle Counter</button>
         </div>
     );
 }
