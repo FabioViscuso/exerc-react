@@ -3,17 +3,28 @@ import { useState, useEffect } from 'react';
 function Counter() {
     const [counter, updateCounter] = useState(0);
 
-    useEffect(() => {
-        const intervalID = setInterval(() => {
+    const intervalID = () => {
+        setInterval(() => {
             updateCounter(counter => counter + 1)
         }, 1000);
-        console.log(counter)
+    }
+
+    useEffect(() => {
+        intervalID()
+        console.log('Mounting...')
 
         return () => {
             clearInterval(intervalID)
         }
 
-    }, [counter])
+    }, [])
+
+    useEffect(() => {
+        return () => {
+            console.log('Unmounting...')
+            clearInterval(intervalID)
+        }
+    })
 
     function resetCounterHandler() {
         updateCounter(counter => counter = 0)
