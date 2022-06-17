@@ -6,7 +6,7 @@
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
-import GithubUser from './GithubUser';
+import GithubUserList from './GithubUserList';
 
 /* import { useState } from 'react' */
 
@@ -17,7 +17,7 @@ function App() {
     } */
     return (
         <div>
-            <GithubUser username={'FabioViscuso'} />
+            <GithubUserList />
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
             {/* <UncontrolledLogin /> */}
