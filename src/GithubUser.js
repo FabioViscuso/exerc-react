@@ -9,10 +9,10 @@ export default function GithubUser({ username }) {
         try {
             const response = await fetch(`https://api.github.com/users/${username}`);
             const data = await response.json();
-            if (!data.name && data.name === null) {
+            if (!data.name || data.name === null) {
                 throw new Error('Invalid username');
             } else {
-                setUser({ name: data.name, bio: data.bio, location: data.location, url: data.html_url });
+                setUser({ name: data.name, photo: data.avatar_url, bio: data.bio, location: data.location, url: data.html_url });
             }
         } catch (err) {
             console.log(err.message);
@@ -33,6 +33,7 @@ export default function GithubUser({ username }) {
             {currUser
                 ? <>
                     <h1>Hello, I'm {currUser.name} {currUser.location && `from ${currUser.location}`}</h1>
+                    <img src={currUser.photo} alt={`avatar of ${currUser.name}`} width={'100px'} />
                     {currUser.bio && <>
                         <h2>About Me: </h2>
                         <p>{currUser.bio}</p> </>}

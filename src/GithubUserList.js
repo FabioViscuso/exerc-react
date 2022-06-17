@@ -39,7 +39,7 @@ export default function GithubUserList() {
 
     function removeUserHandler(event) {
         const userToRemove = Number(event.target.parentElement.attributes.githubusernumber.value)
-        setUsers(users => users = users.filter((user, index) => index !== userToRemove))
+        setUsers(users => users.filter((user, index) => index !== userToRemove))
         setTimeout(() => {
             localStorage.setItem('GithubUserList', JSON.stringify(users.filter((user, index) => index !== userToRemove)))
         }, 100)
