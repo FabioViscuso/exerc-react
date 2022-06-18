@@ -31,14 +31,22 @@ export default function GithubUser({ username }) {
             {isLoading && <h1>Loading</h1>}
 
             {currUser
-                ? <>
-                    <h1>Hello, I'm {currUser.name} {currUser.location && `from ${currUser.location}`}</h1>
-                    <img src={currUser.photo} alt={`avatar of ${currUser.name}`} width={'100px'} />
-                    {currUser.bio && <>
-                        <h2>About Me: </h2>
-                        <p>{currUser.bio}</p> </>}
-                    <p><a href={currUser.url} target='_blank' rel="noreferrer">Find me here!</a></p>
-                </>
+                ? <div className="userCard">
+                    <img src={currUser.photo} className="userCard__avatar" alt={`avatar of ${currUser.name}`} />
+                    <div className="userCard__text">
+                        <div className="userCard__about">
+                            <div>
+                                <h1>Hello, I'm {currUser.name} {currUser.location && `from ${currUser.location}`}</h1>
+                                <a href={currUser.url} target='_blank' rel="noreferrer">
+                                    <button className="userCard__button">Go to my GitHub page!</button>
+                                </a>
+                            </div>
+                        </div>
+                        {currUser.bio ? <div className="userCard__about">
+                            <h2>About Me: </h2>
+                            <p>{currUser.bio}</p> </div> : <p>No bio for this user! :(</p>}
+                    </div>
+                </div>
                 : <h1>We have a problem</h1>}
         </>
     )

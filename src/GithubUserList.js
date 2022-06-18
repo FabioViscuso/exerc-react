@@ -61,9 +61,9 @@ export default function GithubUserList() {
             {
                 users.map((user, index) => {
                     return (
-                        <div githubusernumber={index} key={'githubListUser' + index}>
+                        <div className="userCardWrapper" githubusernumber={index} key={'githubListUser' + index}>
                             <GithubUser username={user} />
-                            <button onClick={removeUserHandler}>Remove from List</button>
+                            <button className="deleteFromListBtn" onClick={removeUserHandler}>X</button>
                         </div>
                     )
                 })
