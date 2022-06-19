@@ -1,4 +1,4 @@
-import Counter from "./Counter";
+/* import Counter from "./Counter"; */
 /* import Container from "./Container"; */
 /* import ConfigurableList from "./ConfigurableList"; */
 /* import GithubUserList from './GithubUserList'; */
@@ -10,23 +10,34 @@ import Counter from "./Counter";
 /* import { CarDetails } from "./CarDetails"; */
 /* import { LanguageContext } from "./LanguageContext"
 import { DisplayLanguage } from "./DisplayLanguage"; */
-import { useState } from "react";
+/* import { useState } from "react"; */
+import { FilteredList } from "./FilteredList";
+
 
 function App() {
-    const [shouldCounterMount, setCounterMount] = useState(true);
+    /* const [shouldCounterMount, setCounterMount] = useState(true);
     function unmountCounter() {
         setCounterMount(shouldCounterMount => !shouldCounterMount)
-    }
+    } */
     /* const [lang, setLang] = useState('English')
     function setLangHandler(event) {
         setLang(event.target.value)
     } */
+    const list = [
+        { id: 1, name: 'John', age: 12 },
+        { id: 2, name: 'Jimmy', age: 27 },
+        { id: 3, name: 'Jimbo', age: 16 },
+        { id: 4, name: 'Jeremy', age: 18 },
+        { id: 5, name: 'Jane', age: 30 },
+        { id: 6, name: 'Jack', age: 32 },
+    ]
     return (
         <div>
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
-            {shouldCounterMount && <Counter />}
-            <button onClick={unmountCounter}>Toggle Counter</button>
+            {/* {shouldCounterMount && <Counter />}
+            <button onClick={unmountCounter}>Toggle Counter</button> */}
+            <FilteredList adultPeople={list} />
             {/* <UncontrolledLogin /> */}
             {/* <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} /> */}
             {/* <Welcome currName={'Fabio'} /> */}
