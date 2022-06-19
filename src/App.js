@@ -6,8 +6,8 @@
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
-import GithubUserList from './GithubUserList';
-
+import { CarDetails } from "./CarDetails";
+/* import GithubUserList from './GithubUserList'; */
 /* import { useState } from 'react' */
 
 function App() {
@@ -22,8 +22,9 @@ function App() {
             {/* {shouldCounterMount && <Counter />}
             <button onClick={unmountCounter}>Toggle Counter</button> */}
             {/* <UncontrolledLogin /> */}
+            <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} />
             {/* <Welcome currName={'Fabio'} /> */}
-            <GithubUserList />
+            {/* <GithubUserList /> */}
             {/* <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
                 <ul>
                     {state.map((item, index) => {
