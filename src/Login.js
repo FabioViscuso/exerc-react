@@ -1,64 +1,33 @@
-import { useState } from 'react';
+import { useControlledLogin } from './utils/useControlledLogin'
 
 function Login() {
-    const [state, setState] = useState({
-        username: "",
-        password: "",
-        remember: false,
-    })
-
-
-    function inputChangeHandler(event) {
-        const value = (event.target.type === "checkbox" ? event.target.checked : event.target.value);
-        const name = event.target.name;
-
-        setState({
-            ...state,
-            [name]: value
-        })
-    }
-
-    function onLogin(event) {
-        event.preventDefault();
-        console.log(state)
-        resetHandler();
-    }
-
-    function resetHandler() {
-        setState(
-            {
-                username: "",
-                password: "",
-                remember: false,
-            }
-        )
-    }
+    const { login, onLogin, onReset, onInputChange } = useControlledLogin()
 
     const buttonStyle = {
-        backgroundColor: (state.password.length <= 8) ? 'red' : 'green'
+        backgroundColor: (login.password.length <= 8) ? 'red' : 'green'
     }
 
     return (
         <form onSubmit={onLogin}>
             <input name="username"
                 type="text"
-                value={state.username}
+                value={login.username}
                 placeholder="username"
-                onChange={inputChangeHandler} />
+                onChange={onInputChange} />
             <input name="password"
                 type="password"
-                value={state.password}
+                value={login.password}
                 placeholder="password"
-                onChange={inputChangeHandler} />
+                onChange={onInputChange} />
             <input name="remember"
                 type="checkbox"
-                checked={state.remember}
-                onChange={inputChangeHandler} />
+                checked={login.remember}
+                onChange={onInputChange} />
             <button type="submit"
                 style={buttonStyle}
-                disabled={(state.username === "" || state.password > 8 ? true : false)}
+                disabled={(login.username === "" || login.password.length < 9 ? true : false)}
             >Login</button>
-            <button type='button' onClick={resetHandler}>Reset</button>
+            <button type='button' onClick={onReset}>Reset</button>
         </form>
     )
 }
