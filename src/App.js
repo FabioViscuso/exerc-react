@@ -1,6 +1,6 @@
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
 /* import ConfigurableList from "./ConfigurableList"; */
-import LanguageContext from "./LanguageContext"
+import { LanguageContext } from "./LanguageContext"
 import DisplayLanguage from "./DisplayLanguage";
 /* import Login from "./Login"; */
 /* import Container from "./Container"; */
@@ -18,8 +18,8 @@ function App() {
             {/* <Login /> */}
             {/* <UncontrolledLogin /> */}
             <select onChange={setLangHandler}>
-                <option value="it">Italiano</option>
-                <option value="en">English</option>
+                <option value="Italiano">Italiano</option>
+                <option value="English">English</option>
             </select>
             <LanguageContext.Provider value={lang}>
                 <DisplayLanguage />
