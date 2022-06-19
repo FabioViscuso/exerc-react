@@ -1,4 +1,4 @@
-/* import Counter from "./Counter"; */
+import Counter from "./Counter";
 /* import Container from "./Container"; */
 /* import ConfigurableList from "./ConfigurableList"; */
 /* import GithubUserList from './GithubUserList'; */
@@ -8,36 +8,36 @@
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
 /* import Welcome from "./Welcome"; */
 /* import { CarDetails } from "./CarDetails"; */
-import { LanguageContext } from "./LanguageContext"
-import { DisplayLanguage } from "./DisplayLanguage";
+/* import { LanguageContext } from "./LanguageContext"
+import { DisplayLanguage } from "./DisplayLanguage"; */
 import { useState } from "react";
 
 function App() {
-    /* const [shouldCounterMount, setCounterMount] = useState(true);
+    const [shouldCounterMount, setCounterMount] = useState(true);
     function unmountCounter() {
         setCounterMount(shouldCounterMount => !shouldCounterMount)
-    } */
-    const [lang, setLang] = useState('English')
+    }
+    /* const [lang, setLang] = useState('English')
     function setLangHandler(event) {
         setLang(event.target.value)
-    }
+    } */
     return (
         <div>
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
-            {/* {shouldCounterMount && <Counter />}
-            <button onClick={unmountCounter}>Toggle Counter</button> */}
+            {shouldCounterMount && <Counter />}
+            <button onClick={unmountCounter}>Toggle Counter</button>
             {/* <UncontrolledLogin /> */}
             {/* <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} /> */}
             {/* <Welcome currName={'Fabio'} /> */}
             {/* <GithubUserList /> */}
-            <select onChange={setLangHandler}>
+            {/* <select onChange={setLangHandler}>
                 <option value="Italiano">Italiano</option>
                 <option value="English">English</option>
             </select>
             <LanguageContext.Provider value={lang}>
                 <DisplayLanguage />
-            </LanguageContext.Provider>
+            </LanguageContext.Provider> */}
             {/* <ConfigurableList subject={"groceries"} render={(state, deleteFromListHandler) => (
                 <ul>
                     {state.map((item, index) => {
