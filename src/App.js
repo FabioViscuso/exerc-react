@@ -1,14 +1,23 @@
-/* import InteractiveWelcome from "./InteractiveWelcome"; */
-/* import ConfigurableList from "./ConfigurableList"; */
-import { LanguageContext } from "./LanguageContext"
-import DisplayLanguage from "./DisplayLanguage";
-/* import Login from "./Login"; */
+/* import Counter from "./Counter"; */
 /* import Container from "./Container"; */
+/* import ConfigurableList from "./ConfigurableList"; */
+/* import GithubUserList from './GithubUserList'; */
+/* import InteractiveWelcome from "./InteractiveWelcome"; */
+/* import Login from "./Login"; */
+/* import Sum from "./Sum"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
+/* import Welcome from "./Welcome"; */
+/* import { CarDetails } from "./CarDetails"; */
+import { LanguageContext } from "./LanguageContext"
+import { DisplayLanguage } from "./DisplayLanguage";
 import { useState } from "react";
 
 function App() {
-    const [lang, setLang] = useState('en')
+    /* const [shouldCounterMount, setCounterMount] = useState(true);
+    function unmountCounter() {
+        setCounterMount(shouldCounterMount => !shouldCounterMount)
+    } */
+    const [lang, setLang] = useState('English')
     function setLangHandler(event) {
         setLang(event.target.value)
     }
@@ -16,7 +25,12 @@ function App() {
         <div>
             {/* <InteractiveWelcome /> */}
             {/* <Login /> */}
+            {/* {shouldCounterMount && <Counter />}
+            <button onClick={unmountCounter}>Toggle Counter</button> */}
             {/* <UncontrolledLogin /> */}
+            {/* <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} /> */}
+            {/* <Welcome currName={'Fabio'} /> */}
+            {/* <GithubUserList /> */}
             <select onChange={setLangHandler}>
                 <option value="Italiano">Italiano</option>
                 <option value="English">English</option>
@@ -36,10 +50,10 @@ function App() {
                         } else { return null }
                     })}
                 </ul>
-            )} /> */}
+            )}/> */}
             {/* <Container title={<h1>Hello world!</h1>}>
-            <p>Lorem ipsum blablabla</p>
-        </Container > */}
+                <p>Lorem ipsum blablabla</p>
+            </Container > */}
         </div>
     );
 }

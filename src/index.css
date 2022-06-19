@@ -2,3 +2,84 @@
     background-color: cadetblue;
     border: 2px solid black;
 }
+
+.userCard {
+    display: flex;
+    flex-direction: row;
+    width: clamp(300px, 70vmax, 700px);
+
+    background-image: linear-gradient(to bottom right, rgb(32, 48, 48), rgb(41, 50, 85), rgb(78, 51, 92)) ;
+    color: rgb(235, 232, 232);
+    font-family: sans-serif;
+    border-radius: 10px;
+    border: 2px solid rgb(44, 92, 180);
+
+    overflow: hidden;
+    transition: all .2s ease;
+}
+
+.userCard__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 20px;
+}
+
+.userCard__about {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.userCard__avatar {
+    min-height: 100%;
+    width: 150px;
+    min-width: 30%;
+    object-fit: cover;
+}
+
+.userCard__button {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 2px solid rgb(44, 92, 180);
+    cursor: pointer;
+    background-color: rgb(193, 212, 243);
+    transition: all .2s ease;
+}
+.userCard__button:hover {
+    background-color: aliceblue;
+    transition: all .2s ease;
+}
+
+.userCard__button a,
+.userCard__button a:visited {
+    text-decoration: none;
+    color: rgb(32, 34, 48);
+}
+
+.userCardWrapper {
+    width: fit-content;
+    position: relative;
+    margin: 40px auto 40px;
+}
+
+.deleteFromListBtn {
+    position: absolute;
+    font-weight: bold;
+    color: aliceblue;
+    border: 2px solid aliceblue;
+    top: 0px;
+    right: -40px;
+    height: 40px;
+    width: 40px;
+    transform: translate(-50%, -50%);
+    background-color:  rgb(158, 103, 103);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.deleteFromListBtn:hover {
+    transition: all .2s ease;
+    background-color: rgb(227, 17, 17);
+}

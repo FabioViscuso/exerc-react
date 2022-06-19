@@ -1,67 +1,34 @@
-import React from "react";
+import { useControlledLogin } from './utils/useControlledLogin'
 
-class Login extends React.Component {
-    state = {
-        username: "",
-        password: "",
-        remember: false,
+function Login() {
+    const { login, onLogin, onReset, onInputChange } = useControlledLogin()
+
+    const buttonStyle = {
+        backgroundColor: (login.password.length <= 8) ? 'red' : 'green'
     }
 
-
-    inputChangeHandler = (event) => {
-        const value = (event.target.type === "checkbox" ? event.target.checked : event.target.value);
-        const name = event.target.name;
-
-        this.setState({
-            [name]: value
-        })
-    }
-
-    onLogin = (event) => {
-        event.preventDefault();
-        console.log(this.state)
-
-    }
-
-    resetHandler = () => {
-        this.setState(
-            {
-                username: "",
-                password: "",
-                remember: false,
-            }
-        )
-    }
-
-    render() {
-        const buttonStyle = {
-            backgroundColor: (this.state.password.length < 8) ? 'red' : 'green'
-        }
-
-        return (
-            <form>
-                <input name="username"
-                    type="text"
-                    value={this.state.username}
-                    placeholder="username"
-                    onChange={this.inputChangeHandler} />
-                <input name="password"
-                    type="password"
-                    value={this.state.password}
-                    placeholder="password"
-                    onChange={this.inputChangeHandler} />
-                <input name="remember"
-                    type="checkbox"
-                    checked={this.state.remember}
-                    onChange={this.inputChangeHandler} />
-                <button type="submit"
-                    style={buttonStyle}
-                    onClick={this.onLogin}
-                    disabled={(this.state.password === "" || this.state.username === "" ? true : false)}
-                >Login</button>
-                <button onClick={this.resetHandler}>Reset</button>
-            </form>
-        )
-    }
+    return (
+        <form onSubmit={onLogin}>
+            <input name="username"
+                type="text"
+                value={login.username}
+                placeholder="username"
+                onChange={onInputChange} />
+            <input name="password"
+                type="password"
+                value={login.password}
+                placeholder="password"
+                onChange={onInputChange} />
+            <input name="remember"
+                type="checkbox"
+                checked={login.remember}
+                onChange={onInputChange} />
+            <button type="submit"
+                style={buttonStyle}
+                disabled={(login.username === "" || login.password.length < 9 ? true : false)}
+            >Login</button>
+            <button type='button' onClick={onReset}>Reset</button>
+        </form>
+    )
 }
 export default Login;
