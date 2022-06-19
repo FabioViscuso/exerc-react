@@ -1,39 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useCounter } from './utils/useCounter'
 
-function Counter() {
-    const [counter, updateCounter] = useState(0);
+function Counter({ initialValue = 0 }) {
+    const { counter,
+        onReset,
+        onIncrement,
+        onDecrement } = useCounter(initialValue)
 
-    const intervalID = () => {
-        setInterval(() => {
-            updateCounter(counter => counter + 1)
-        }, 1000);
-    }
-
-    useEffect(() => {
-        intervalID()
-        console.log('Mounting...')
-
-        return () => {
-            clearInterval(intervalID)
-        }
-
-    }, [])
-
-    useEffect(() => {
-        return () => {
-            console.log('Unmounting...')
-            clearInterval(intervalID)
-        }
-    })
-
-    function resetCounterHandler() {
-        updateCounter(counter => counter = 0)
-    }
 
     return (
         <>
-            <p>{counter}</p>
-            <button onClick={resetCounterHandler}>Clear counter</button>
+            <p>Current value: {counter}</p>
+            <button onClick={onIncrement}>Increment counter</button>
+            <button onClick={onDecrement}>Decrement counter</button>
+            <button onClick={onReset}>Reset counter</button>
         </>
     )
 }
