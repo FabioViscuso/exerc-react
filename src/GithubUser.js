@@ -9,11 +9,8 @@ export default function GithubUser({ username }) {
         try {
             const response = await fetch(`https://api.github.com/users/${username}`);
             const data = await response.json();
-            if (!data.name || data.name === null) {
-                throw new Error('Invalid username');
-            } else {
-                setUser({ name: data.name, photo: data.avatar_url, bio: data.bio, location: data.location, url: data.html_url });
-            }
+            console.log(data);
+            setUser({ name: data.name, photo: data.avatar_url, bio: data.bio, location: data.location, url: data.html_url });
         } catch (err) {
             console.log(err.message);
             setUser(null);
@@ -36,15 +33,19 @@ export default function GithubUser({ username }) {
                     <div className="userCard__text">
                         <div className="userCard__about">
                             <div>
-                                <h1>Hello, I'm {currUser.name} {currUser.location && `from ${currUser.location}`}</h1>
-                                <a href={currUser.url} target='_blank' rel="noreferrer">
-                                    <button className="userCard__button">Go to my GitHub page!</button>
-                                </a>
+                                <h2>Hello, I'm {currUser.name ? `${currUser.name}, aka ${username}` : username}{currUser.location && `, and I'm from ${currUser.location}`}</h2>
+                                {
+                                    currUser.bio &&
+                                    <div className="userCard__about">
+                                        <h3>About Me: </h3>
+                                        <p>{currUser.bio}</p>
+                                    </div>
+                                }
                             </div>
                         </div>
-                        {currUser.bio ? <div className="userCard__about">
-                            <h2>About Me: </h2>
-                            <p>{currUser.bio}</p> </div> : <p>No bio for this user! :(</p>}
+                        <a href={currUser.url} target='_blank' rel="noreferrer">
+                            <button className="userCard__button">Go to my GitHub page!</button>
+                        </a>
                     </div>
                 </div>
                 : <h1>We have a problem</h1>}
