@@ -15,21 +15,11 @@ export default function GithubUserList() {
     /* This function will use a fetch, better declare as async */
     async function addUserHandler(event) {
         event.preventDefault();
-        /* If the status of the response is not positive or name is null, throw an error */
-        try {
-            const response = await fetch(`https://api.github.com/users/${event.target.addUserInput.value}`)
-            if (response.status !== 200) {
-                throw new Error('Request error')
-            }
-            setUsers([...users, event.target.addUserInput.value])
-            setTimeout(() => {
-                localStorage.setItem('GithubUserList', JSON.stringify([...users, event.target.addUserInput.value]))
-                event.target.reset()
-            }, 500)
-
-        } catch (err) {
-            console.log(err.message)
-        }
+        setUsers([...users, event.target.addUserInput.value])
+        setTimeout(() => {
+            localStorage.setItem('GithubUserList', JSON.stringify([...users, event.target.addUserInput.value]))
+            event.target.reset()
+        }, 500)
     }
 
     function removeUserHandler(event) {
