@@ -18,14 +18,10 @@ export default function GithubUserList() {
         /* If the status of the response is not positive or name is null, throw an error */
         try {
             const response = await fetch(`https://api.github.com/users/${event.target.addUserInput.value}`)
-            const data = await response.json()
-
             if (response.status !== 200) {
                 throw new Error('Request error')
-            } else if (data.name === '' || data.name === null) {
-                throw new Error('Empty name, probably non existant user')
             }
-            setUsers(users => [...users, event.target.addUserInput.value])
+            setUsers([...users, event.target.addUserInput.value])
             setTimeout(() => {
                 localStorage.setItem('GithubUserList', JSON.stringify([...users, event.target.addUserInput.value]))
                 event.target.reset()
@@ -34,12 +30,11 @@ export default function GithubUserList() {
         } catch (err) {
             console.log(err.message)
         }
-
     }
 
     function removeUserHandler(event) {
         const userToRemove = Number(event.target.parentElement.attributes.githubusernumber.value)
-        setUsers(users => users.filter((user, index) => index !== userToRemove))
+        setUsers(users.filter((user, index) => index !== userToRemove))
         setTimeout(() => {
             localStorage.setItem('GithubUserList', JSON.stringify(users.filter((user, index) => index !== userToRemove)))
         }, 100)
@@ -51,6 +46,7 @@ export default function GithubUserList() {
             localStorage.setItem('GithubUserList', JSON.stringify([]))
         }, 100)
     }
+
     return (
         <>
             <form onSubmit={addUserHandler}>

@@ -21,6 +21,7 @@
 .userCard__text {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 25px 20px;
 }
 
@@ -34,7 +35,7 @@
 .userCard__avatar {
     min-height: 100%;
     width: 150px;
-    min-width: 20%;
+    min-width: 30%;
     object-fit: cover;
 }
 
@@ -43,6 +44,12 @@
     border-radius: 10px;
     border: 2px solid rgb(44, 92, 180);
     cursor: pointer;
+    background-color: rgb(193, 212, 243);
+    transition: all .2s ease;
+}
+.userCard__button:hover {
+    background-color: aliceblue;
+    transition: all .2s ease;
 }
 
 .userCard__button a,
@@ -67,12 +74,12 @@
     height: 40px;
     width: 40px;
     transform: translate(-50%, -50%);
-    background-image: radial-gradient(circle, rgb(147, 50, 50), rgb(176, 47, 47));
+    background-color:  rgb(158, 103, 103);
     border-radius: 50%;
     cursor: pointer;
     transition: all .2s ease;
 }
 .deleteFromListBtn:hover {
     transition: all .2s ease;
-    background-image: radial-gradient(circle, rgb(205, 29, 29), rgb(227, 17, 17));
+    background-color: rgb(227, 17, 17);
 }
