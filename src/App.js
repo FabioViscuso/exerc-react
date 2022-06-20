@@ -6,13 +6,13 @@
 /* import Login from "./Login"; */
 /* import Sum from "./Sum"; */
 /* import UncontrolledLogin from "./UncontrolledLogin"; */
-/* import Welcome from "./Welcome"; */
+import Welcome from "./Welcome";
 /* import { CarDetails } from "./CarDetails"; */
 /* import { LanguageContext } from "./LanguageContext"
 import { DisplayLanguage } from "./DisplayLanguage"; */
 /* import { useState } from "react"; */
-import { FilteredList } from "./FilteredList";
-
+/* import { FilteredList } from "./FilteredList"; */
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
     /* const [shouldCounterMount, setCounterMount] = useState(true);
@@ -23,21 +23,24 @@ function App() {
     function setLangHandler(event) {
         setLang(event.target.value)
     } */
-    const list = [
+    /* const list = [
         { id: 1, name: 'John', age: 12 },
         { id: 2, name: 'Jimmy', age: 27 },
         { id: 3, name: 'Jimbo', age: 16 },
         { id: 4, name: 'Jeremy', age: 18 },
         { id: 5, name: 'Jane', age: 30 },
         { id: 6, name: 'Jack', age: 32 },
-    ]
+    ] */
     return (
         <div>
-            {/* <InteractiveWelcome /> */}
+            <Routes>
+                <Route path="/" element={<Welcome currName={'Fabio'} />} />
+            </Routes>
+            {/*  */}
             {/* <Login /> */}
             {/* {shouldCounterMount && <Counter />}
             <button onClick={unmountCounter}>Toggle Counter</button> */}
-            <FilteredList adultPeople={list} />
+            {/* <FilteredList adultPeople={list} /> */}
             {/* <UncontrolledLogin /> */}
             {/* <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} /> */}
             {/* <Welcome currName={'Fabio'} /> */}
