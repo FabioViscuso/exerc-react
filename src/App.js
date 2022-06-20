@@ -34,6 +34,9 @@ function App() {
     ] */
     return (
         <Container title={'First App w/ routing'}>
+            <Link to="/"><p className="navLink" >Home</p></Link>
+            <Link to="/counter"><p className="navLink">Counter App</p></Link>
+            <Link to="/githubuser"><p className="navLink">Find GitHub user by username</p></Link>
             <Routes>
                 <Route path="/" element={<Welcome currName={'Fabio'} />} />
                 <Route path="/counter" element={<Counter />} />
