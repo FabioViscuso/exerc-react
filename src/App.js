@@ -1,4 +1,4 @@
-/* import Counter from "./Counter"; */
+import Counter from "./Counter";
 /* import Container from "./Container"; */
 /* import ConfigurableList from "./ConfigurableList"; */
 /* import GithubUserList from './GithubUserList'; */
@@ -35,15 +35,14 @@ function App() {
         <div>
             <Routes>
                 <Route path="/" element={<Welcome currName={'Fabio'} />} />
+                <Route path="/counter" element={<Counter />} />
             </Routes>
-            {/*  */}
             {/* <Login /> */}
             {/* {shouldCounterMount && <Counter />}
             <button onClick={unmountCounter}>Toggle Counter</button> */}
             {/* <FilteredList adultPeople={list} /> */}
             {/* <UncontrolledLogin /> */}
             {/* <CarDetails initialData={{ model: 'tesla model s', year: 2022, color: '#eeeeee' }} /> */}
-            {/* <Welcome currName={'Fabio'} /> */}
             {/* <GithubUserList /> */}
             {/* <select onChange={setLangHandler}>
                 <option value="Italiano">Italiano</option>
