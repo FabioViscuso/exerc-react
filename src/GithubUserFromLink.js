@@ -1,13 +1,13 @@
-import { useEffect } from "react";
 import { useGithubUser } from "./utils/useGithubUser"
+import { useParams } from 'react-router-dom'
+import { useEffect } from "react";
 
-export default function GithubUser({ username }) {
-    const { currUser, isLoading, error, onFetch } = useGithubUser(username);
-
+export function GithubUserFromLink() {
+    const { currUser, isLoading, error, onFetch } = useGithubUser()
+    const { username } = useParams()
     useEffect(() => {
-        onFetch(username);
+        onFetch(username)
     }, [])
-
     return (
         <>
             {isLoading && <h1>Loading</h1>}

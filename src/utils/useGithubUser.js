@@ -5,7 +5,7 @@ export function useGithubUser(username) {
     const [isLoading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    async function fetchUser() {
+    async function fetchUser(username) {
         setLoading(true)
         setError(null)
         try {

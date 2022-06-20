@@ -1,6 +1,7 @@
 import Counter from "./Counter";
-/* import Container from "./Container"; */
+import Container from "./Container";
 /* import ConfigurableList from "./ConfigurableList"; */
+import { GithubUserFromLink } from "./GithubUserFromLink";
 /* import GithubUserList from './GithubUserList'; */
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
 /* import Login from "./Login"; */
@@ -32,10 +33,13 @@ function App() {
         { id: 6, name: 'Jack', age: 32 },
     ] */
     return (
-        <div>
+        <Container title={'First App w/ routing'}>
             <Routes>
                 <Route path="/" element={<Welcome currName={'Fabio'} />} />
                 <Route path="/counter" element={<Counter />} />
+                <Route path="/githubuser" >
+                    <Route path=":username" element={<GithubUserFromLink />} />
+                </Route>
             </Routes>
             {/* <Login /> */}
             {/* {shouldCounterMount && <Counter />}
@@ -64,10 +68,7 @@ function App() {
                     })}
                 </ul>
             )}/> */}
-            {/* <Container title={<h1>Hello world!</h1>}>
-                <p>Lorem ipsum blablabla</p>
-            </Container > */}
-        </div>
+        </Container>
     );
 }
 
