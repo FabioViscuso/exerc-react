@@ -2,7 +2,7 @@ import Counter from "./Counter";
 import Container from "./Container";
 /* import ConfigurableList from "./ConfigurableList"; */
 import { GithubUserFromLink } from "./GithubUserFromLink";
-/* import GithubUserList from './GithubUserList'; */
+import { GithubUserList } from './GithubUserList';
 /* import InteractiveWelcome from "./InteractiveWelcome"; */
 /* import Login from "./Login"; */
 /* import Sum from "./Sum"; */
@@ -37,17 +37,14 @@ function App() {
             <Routes>
                 <Route path="/" element={<Welcome currName={'Fabio'} />} />
                 <Route path="/counter" element={<Counter />} />
-                <Route path="/githubuser" >
+                <Route path="/githubusers" element={<GithubUserList />} >
                     <Route path=":username" element={<GithubUserFromLink />} />
                 </Route>
-                <Route path="*" element={
-                    <div>
-                        <h1>Sorry, page not found</h1>
-                    </div>} />
+                <Route path="*" element={<div><h1>Sorry, page not found</h1></div>} />
             </Routes>
             <Link to="/"><p className="navLink" >Home</p></Link>
             <Link to="/counter"><p className="navLink">Counter App</p></Link>
-            <Link to="/githubuser"><p className="navLink">Find GitHub user by username</p></Link>
+            <Link to="/githubusers"><p className="navLink">GitHub Users</p></Link>
             {/* <Login /> */}
             {/* {shouldCounterMount && <Counter />}
             <button onClick={unmountCounter}>Toggle Counter</button> */}

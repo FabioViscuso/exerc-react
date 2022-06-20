@@ -7,7 +7,7 @@ export function GithubUserFromLink() {
     const { username } = useParams()
     useEffect(() => {
         onFetch(username)
-    }, [])
+    }, [username])
     return (
         <>
             {isLoading && <h1>Loading</h1>}

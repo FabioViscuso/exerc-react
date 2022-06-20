@@ -3,8 +3,9 @@ import { Component } from 'react';
 class Container extends Component {
     render() {
         const containerStyle = {
-            backgroundColor: '#a0c4c6',
-            border: '2px solid #b4bcc4',
+            backgroundColor: '#c2c2e5',
+            border: '2px solid #333333',
+            borderRadius: '5px',
             padding: '20px 15px'
         }
         return (<div style={containerStyle}>

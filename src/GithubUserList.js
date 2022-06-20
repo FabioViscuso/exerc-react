@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import GithubUser from "./GithubUser";
+import { Link, Outlet } from 'react-router-dom';
 
-export default function GithubUserList() {
+export function GithubUserList() {
     const [users, setUsers] = useState([])
 
-    /* Initialize the component with the contents of local storage */
+    /* /* Initialize the component with the contents of local storage */
     useEffect(() => {
         if (localStorage.getItem('GithubUserList')) {
             setUsers(users => users = JSON.parse(localStorage.getItem('GithubUserList')))
@@ -47,13 +47,14 @@ export default function GithubUserList() {
             {
                 users.map((user, index) => {
                     return (
-                        <div className="userCardWrapper" githubusernumber={index} key={'githubListUser' + index}>
-                            <GithubUser username={user} />
-                            <button className="deleteFromListBtn" onClick={removeUserHandler}>X</button>
+                        <div className="githubUserLinkContainer" githubusernumber={index} key={'githubListUser' + index}>
+                            <Link to={user}><p className="githubUserLink">See {user}'s card</p></Link>
+                            <button onClick={removeUserHandler}>X</button>
                         </div>
                     )
                 })
             }
+            <Outlet />
         </>
     )
 }
