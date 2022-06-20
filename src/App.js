@@ -38,6 +38,7 @@ function App() {
                 <Route path="/" element={<Welcome currName={'Fabio'} />} />
                 <Route path="/counter" element={<Counter />} />
                 <Route path="/githubusers" element={<GithubUserList />} >
+                    <Route index element={<h2>Select an user or fetch a new one</h2>} />
                     <Route path=":username" element={<GithubUserFromLink />} />
                 </Route>
                 <Route path="*" element={<div><h1>Sorry, page not found</h1></div>} />
