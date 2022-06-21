@@ -1,33 +1,28 @@
-import { useEffect } from "react";
 import { useGithubUser } from "./utils/useGithubUser"
 
 export default function GithubUser({ username }) {
-    const { currUser, isLoading, error, onFetch } = useGithubUser(username);
-
-    useEffect(() => {
-        onFetch();
-    }, [])
+    const { user, isLoading, error } = useGithubUser(username);
 
     return (
         <>
             {isLoading && <h1>Loading</h1>}
 
-            {currUser && <div className="userCard">
-                <img src={currUser.photo} className="userCard__avatar" alt={`avatar of ${currUser.name}`} />
+            {user && <div className="userCard">
+                <img src={user.avatar_url} className="userCard__avatar" alt={`avatar of ${user.name}`} />
                 <div className="userCard__text">
                     <div className="userCard__about">
                         <div>
-                            <h2>Hello, I'm {currUser.name ? `${currUser.name}, aka ${username}` : username}{currUser.location && `, and I'm from ${currUser.location}`}</h2>
+                            <h2>Hello, I'm {user.name ? `${user.name}, aka ${username}` : username}{user.location && `, and I'm from ${user.location}`}</h2>
                             {
-                                currUser.bio &&
+                                user.bio &&
                                 <div className="userCard__about">
                                     <h3>About Me: </h3>
-                                    <p>{currUser.bio}</p>
+                                    <p>{user.bio}</p>
                                 </div>
                             }
                         </div>
                     </div>
-                    <a href={currUser.url} target='_blank' rel="noreferrer">
+                    <a href={user.url} target='_blank' rel="noreferrer">
                         <button className="userCard__button">Go to my GitHub page!</button>
                     </a>
                 </div>
