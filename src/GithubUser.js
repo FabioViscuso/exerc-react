@@ -1,12 +1,10 @@
 import { useGithubUser } from "./utils/useGithubUser"
 
 export default function GithubUser({ username }) {
-    const { user, isLoading, error, isUsernameInvalid } = useGithubUser(username);
+    const { user, isLoading, error, isUsernameInvalid, onRefetch } = useGithubUser(username);
 
     return (
         <>
-            {isLoading && <h1>Loading</h1>}
-
             {user && <div className="userCard">
                 <img src={user.avatar_url} className="userCard__avatar" alt={`avatar of ${user.name}`} />
                 <div className="userCard__text">
@@ -25,9 +23,14 @@ export default function GithubUser({ username }) {
                     <a href={user.url} target='_blank' rel="noreferrer">
                         <button className="userCard__button">Go to my GitHub page!</button>
                     </a>
+                    <button className="userCard__button" onClick={onRefetch}>Update data</button>
                 </div>
             </div>}
+
+            {isLoading && <h1>Loading</h1>}
+
             {error && <h1>{error}</h1>}
+
             {isUsernameInvalid && <h1>Invalid or empty username</h1>}
         </>
     )

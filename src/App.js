@@ -5,7 +5,7 @@ function App() {
     return (
         <div>
             <Container title={<h1>Hello world!</h1>}>
-                <GithubUser username="" />
+                <GithubUser username="FabioViscuso" />
             </Container >
         </div>
     );
