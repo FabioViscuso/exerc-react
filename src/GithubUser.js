@@ -1,7 +1,7 @@
 import { useGithubUser } from "./utils/useGithubUser"
 
 export default function GithubUser({ username }) {
-    const { user, isLoading, error } = useGithubUser(username);
+    const { user, isLoading, error, isUsernameInvalid } = useGithubUser(username);
 
     return (
         <>
@@ -28,6 +28,7 @@ export default function GithubUser({ username }) {
                 </div>
             </div>}
             {error && <h1>{error}</h1>}
+            {isUsernameInvalid && <h1>Invalid or empty username</h1>}
         </>
     )
 }
