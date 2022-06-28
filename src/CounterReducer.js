@@ -21,3 +21,12 @@ export function counterReset() {
         type: RESET
     }
 }
+
+export function counterReducer(state = defaultState, action) {
+    switch (action.type) {
+        case INCREMENT: return state + 1;
+        case DECREMENT: return state - 1;
+        case RESET: return defaultState;
+        default: return state
+    }
+}
