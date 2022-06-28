@@ -9,6 +9,7 @@ import {addTodo, removeTodo, editTodo} from './TodosReducer'
 /* const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />); */
 
+/* subscribed to the store since redux-02 */
 store.subscribe(() => {
     console.log(store.getState())
 })
