@@ -14,7 +14,7 @@ export function addTodo(user = { id: defaultState.length, title: '', completed: 
 export function removeTodo(id = defaultState.length) {
     return {
         type: REMOVE_TODO,
-        payload: { id }
+        payload: id
     }
 }
 
